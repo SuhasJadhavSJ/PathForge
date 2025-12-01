@@ -19,7 +19,7 @@ export default function Dashboard() {
       }
 
       const response = await axios.get(
-        "http://localhost:4000/api/user/roadmaps",
+        "https://pathforge-backend-zn5j.onrender.com/api/user/roadmaps",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

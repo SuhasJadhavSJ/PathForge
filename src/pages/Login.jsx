@@ -18,7 +18,7 @@ const handleLogin = async (e) => {
   try {
     setLoading(true);
 
-    const response = await axios.post("http://localhost:4000/api/auth/login", {
+    const response = await axios.post("https://pathforge-backend-zn5j.onrender.com/api/auth/login", {
       email,
       password,
     });
@@ -26,7 +26,7 @@ const handleLogin = async (e) => {
     // Save token
     localStorage.setItem("token", response.data.token);
 
-    
+
     // 🔥 Notify Navbar to re-render immediately
     window.dispatchEvent(new Event("token-updated"));
 

@@ -20,7 +20,7 @@ export default function Register() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:4000/api/auth/register",
+        "https://pathforge-backend-zn5j.onrender.com/api/auth/register",
         { name, email, password }
       );
 

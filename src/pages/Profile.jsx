@@ -19,7 +19,7 @@ export default function Profile() {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("No token");
 
-      const res = await axios.get("http://localhost:4000/api/user/me", {
+      const res = await axios.get("https://pathforge-backend-zn5j.onrender.com/api/user/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
 

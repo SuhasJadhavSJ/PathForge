@@ -10,12 +10,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
-  // Always dark mode
   useEffect(() => {
     document.documentElement.classList.add("dark");
   }, []);
 
-  // Sync token when login changes (fix refresh issue)
   useEffect(() => {
     const sync = () => setToken(localStorage.getItem("token"));
     window.addEventListener("storage", sync);
@@ -30,7 +28,6 @@ export default function Navbar() {
     navigate("/");
   };
 
-  // MENU ITEMS (clean + mapped)
   const MENU_LINKS = [
     { label: "Create", path: "/create" },
     { label: "Explore", path: "/explore" },
@@ -44,21 +41,22 @@ export default function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4 }}
-        className="w-full bg-slate-900/80 backdrop-blur-xl shadow-sm px-6 py-4 sticky top-0 z-50 border-b border-slate-800"
+        className="w-full bg-slate-900/80 backdrop-blur-xl shadow-sm px-6 py-4 sticky top-0 
+                   z-[70] border-b border-slate-800"
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
 
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-extrabold bg-gradient-to-r from-purple-500 to-cyan-400 text-transparent bg-clip-text tracking-tight"
+            className="text-2xl font-extrabold bg-gradient-to-r from-purple-500 to-cyan-400 
+                       text-transparent bg-clip-text tracking-tight"
           >
             PathForge
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
-
             {MENU_LINKS.map(({ label, path }) => (
               <Link
                 key={path}
@@ -69,7 +67,6 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* PROFILE DROPDOWN */}
             {token ? (
               <div className="relative">
                 <button
@@ -85,7 +82,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: -5 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="absolute right-0 mt-3 w-40 bg-slate-900 border border-slate-700 
-                               rounded-xl shadow-xl p-3 z-50"
+                               rounded-xl shadow-xl p-3 z-[80]"
                   >
                     <Link
                       onClick={() => setDropdown(false)}
@@ -115,17 +112,17 @@ export default function Navbar() {
             ) : (
               <Link
                 to="/login"
-                className="px-4 py-2 bg-gradient-to-r from-purple-600 to-cyan-500 text-white rounded-lg hover:opacity-90 transition"
+                className="px-4 py-2 bg-gradient-to-r from-purple-600 to-cyan-500 text-white rounded-lg 
+                           hover:opacity-90 transition"
               >
                 Login
               </Link>
             )}
-
           </div>
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden text-3xl text-white"
+            className="md:hidden text-3xl text-white z-[100]"
             onClick={() => setOpen(!open)}
           >
             <motion.div initial={false} animate={open ? { rotate: 180 } : { rotate: 0 }}>
@@ -139,7 +136,9 @@ export default function Navbar() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: open ? 1 : 0 }}
-        className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition pointer-events-${open ? "auto" : "none"}`}
+        className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] transition pointer-events-${
+          open ? "auto" : "none"
+        }`}
         onClick={() => setOpen(false)}
       />
 
@@ -148,7 +147,8 @@ export default function Navbar() {
         initial={{ x: "100%" }}
         animate={{ x: open ? 0 : "100%" }}
         transition={{ type: "spring", stiffness: 200, damping: 22 }}
-        className="fixed right-0 top-0 h-full w-72 bg-slate-900 border-l border-slate-800 shadow-xl p-6 z-50 md:hidden"
+        className="fixed right-0 top-0 h-full w-72 bg-slate-900 border-l border-slate-800 shadow-xl 
+                   p-6 z-[80] md:hidden"
       >
         <div className="flex flex-col gap-6 text-lg text-gray-300 mt-10">
 

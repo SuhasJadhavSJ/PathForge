@@ -49,7 +49,7 @@ export default function GeneratedRoadmap() {
 
       // ✅ FIX #2 — send correct data to backend
       await axios.post(
-        "http://localhost:4000/api/roadmap/save",
+        "https://pathforge-backend-zn5j.onrender.com/api/roadmap/save",
         { roadmap, formInput },
         { headers: { Authorization: `Bearer ${token}` } }
       );

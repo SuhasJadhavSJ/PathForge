@@ -16,7 +16,7 @@ export default function StepReview({ back }) {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:4000/api/roadmap/generate",
+        "https://pathforge-backend-zn5j.onrender.com/api/roadmap/generate",
         form
       );
 

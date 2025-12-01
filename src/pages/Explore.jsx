@@ -28,7 +28,7 @@ export default function Explore() {
         page,
         perPage,
       };
-      const { data } = await axios.get("http://localhost:4000/api/roadmap/explore", { params });
+      const { data } = await axios.get("https://pathforge-backend-zn5j.onrender.com/api/roadmap/explore", { params });
       setRoadmaps(data.roadmaps);
       setTotalPages(data.totalPages || 1);
     } catch (err) {

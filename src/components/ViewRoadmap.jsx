@@ -16,7 +16,7 @@ export default function ViewRoadmap() {
 
 const loadRoadmap = async () => {
   try {
-    const res = await axios.get(`http://localhost:4000/api/roadmap/view/${id}`);
+    const res = await axios.get(`https://pathforge-backend-zn5j.onrender.com/api/roadmap/view/${id}`);
     console.log("VIEW RESPONSE:", res.data);
 
     console.log("VIEW RAW DATA:", res.data);
